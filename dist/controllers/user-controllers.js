@@ -83,7 +83,8 @@ export const userLogin = async (req, res, next) => {
             expires,
             httpOnly: true,
             signed: true,
-            secure: true
+            secure: true,
+            sameSite: 'none'
         });
         return res
             .status(200)
