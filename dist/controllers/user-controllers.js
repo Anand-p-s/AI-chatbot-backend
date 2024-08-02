@@ -66,10 +66,9 @@ export const userLogin = async (req, res, next) => {
         // clear cookie
         res.clearCookie(COOKIE_NAME, {
             httpOnly: true,
-            domain: "ai-chatbot-frontend-z4th.onrender.com",
+            domain: "onrender.com",
             signed: true,
             path: "/",
-            sameSite: 'none',
             secure: true
         });
         // create token and store cookie
@@ -78,11 +77,10 @@ export const userLogin = async (req, res, next) => {
         expires.setDate(expires.getDate() + 7);
         res.cookie(COOKIE_NAME, token, {
             path: "/",
-            domain: "ai-chatbot-frontend-z4th.onrender.com",
+            domain: "onrender.com",
             expires,
             httpOnly: true,
             signed: true,
-            sameSite: 'none',
             secure: true
         });
         return res
