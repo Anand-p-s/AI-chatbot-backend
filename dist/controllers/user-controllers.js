@@ -30,6 +30,7 @@ export const userSignup = async (req, res) => {
             domain: "ai-chatbot-frontend-z4th.onrender.com",
             signed: true,
             path: "/",
+            secure: true
         });
         // create token and store cookie
         const token = createToken(user._id.toString(), user.email, "7d");
@@ -41,6 +42,7 @@ export const userSignup = async (req, res) => {
             expires,
             httpOnly: true,
             signed: true,
+            secure: true
         });
         return res
             .status(201)
