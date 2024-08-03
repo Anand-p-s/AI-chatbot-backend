@@ -27,7 +27,6 @@ export const userSignup = async (req, res) => {
         // clear cookie
         res.clearCookie(COOKIE_NAME, {
             httpOnly: true,
-            domain: "onrender.com",
             signed: true,
             path: "/",
             sameSite: 'none',
@@ -39,7 +38,6 @@ export const userSignup = async (req, res) => {
         expires.setDate(expires.getDate() + 7);
         res.cookie(COOKIE_NAME, token, {
             path: "/",
-            domain: ".onrender.com",
             expires,
             httpOnly: true,
             signed: true,
