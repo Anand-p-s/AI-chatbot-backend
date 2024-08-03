@@ -30,7 +30,7 @@ export const userSignup = async (req, res) => {
             domain: "onrender.com",
             signed: true,
             path: "/",
-            secure: true
+            sameSite: 'none',
         });
         // create token and store cookie
         const token = createToken(user._id.toString(), user.email, "7d");
@@ -42,7 +42,7 @@ export const userSignup = async (req, res) => {
             expires,
             httpOnly: true,
             signed: true,
-            secure: true
+            sameSite: 'none',
         });
         return res
             .status(201)
