@@ -27,10 +27,11 @@ export const userSignup = async (req, res) => {
         // clear cookie
         res.clearCookie(COOKIE_NAME, {
             httpOnly: true,
-            domain: "onrender.com",
+            domain: ".onrender.com",
             signed: true,
             path: "/",
             sameSite: 'none',
+            secure:true
         });
         // create token and store cookie
         const token = createToken(user._id.toString(), user.email, "7d");
@@ -38,11 +39,12 @@ export const userSignup = async (req, res) => {
         expires.setDate(expires.getDate() + 7);
         res.cookie(COOKIE_NAME, token, {
             path: "/",
-            domain: "onrender.com",
+            domain: ".onrender.com",
             expires,
             httpOnly: true,
             signed: true,
             sameSite: 'none',
+            secure:true
         });
         return res
             .status(201)
@@ -68,9 +70,10 @@ export const userLogin = async (req, res, next) => {
         // clear cookie
         res.clearCookie(COOKIE_NAME, {
             httpOnly: true,
-            domain: "ai-chatbot-frontend-z4th.onrender.com",
+            domain: ".onrender.com",
             signed: true,
             sameSite: 'none',
+            secure: true,
             path: "/",
         });
         // create token and store cookie
@@ -79,11 +82,12 @@ export const userLogin = async (req, res, next) => {
         expires.setDate(expires.getDate() + 7);
         res.cookie(COOKIE_NAME, token, {
             path: "/",
-            domain: "ai-chatbot-frontend-z4th.onrender.com",
+            domain: ".onrender.com",
             expires,
             httpOnly: true,
             sameSite: 'none',
-            signed: true
+            signed: true,
+            secure:true
         });
         return res
             .status(200)
