@@ -72,7 +72,7 @@ export const userLogin = async (req, res, next) => {
             httpOnly: true,
             domain: ".onrender.com",
             signed: true,
-            sameSite: 'none',
+            
             secure: true,
             path: "/",
         });
@@ -85,7 +85,7 @@ export const userLogin = async (req, res, next) => {
             domain: ".onrender.com",
             expires,
             httpOnly: true,
-            sameSite: 'none',
+            
             signed: true,
             secure:true
         });
