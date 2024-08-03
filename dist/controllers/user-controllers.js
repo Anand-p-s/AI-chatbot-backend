@@ -70,6 +70,7 @@ export const userLogin = async (req, res, next) => {
             httpOnly: true,
             domain: "ai-chatbot-frontend-z4th.onrender.com",
             signed: true,
+            sameSite: 'none',
             path: "/",
         });
         // create token and store cookie
@@ -81,6 +82,7 @@ export const userLogin = async (req, res, next) => {
             domain: "ai-chatbot-frontend-z4th.onrender.com",
             expires,
             httpOnly: true,
+            sameSite: 'none',
             signed: true
         });
         return res
