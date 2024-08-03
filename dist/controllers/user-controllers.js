@@ -119,7 +119,6 @@ export const logoutUser = async (req, res) => {
         // clear cookie
         res.clearCookie(COOKIE_NAME, {
             httpOnly: true,
-            domain: "localhost",
             signed: true,
             path: "/",
         });
