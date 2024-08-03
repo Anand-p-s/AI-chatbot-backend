@@ -121,6 +121,8 @@ export const logoutUser = async (req, res) => {
             httpOnly: true,
             signed: true,
             path: "/",
+            sameSite: 'none',
+            secure: true
         });
         return res.status(200).json({ message: "OK" });
     }
